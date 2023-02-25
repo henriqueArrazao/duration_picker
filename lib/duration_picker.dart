@@ -816,14 +816,18 @@ Future<Duration?> showDurationPicker({
   BaseUnit baseUnit = BaseUnit.minute,
   double snapToMins = 1.0,
   BoxDecoration? decoration,
+  required ThemeData themeData,
 }) async {
   return showDialog<Duration>(
     context: context,
-    builder: (BuildContext context) => DurationPickerDialog(
-      initialTime: initialTime,
-      baseUnit: baseUnit,
-      snapToMins: snapToMins,
-      decoration: decoration,
+    builder: (BuildContext context) => Theme(
+      data: themeData,
+      child: DurationPickerDialog(
+        initialTime: initialTime,
+        baseUnit: baseUnit,
+        snapToMins: snapToMins,
+        decoration: decoration,
+      ),
     ),
   );
 }
